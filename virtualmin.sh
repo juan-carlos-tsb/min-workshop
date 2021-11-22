@@ -37,6 +37,7 @@ cd virtualmin
 wget https://software.virtualmin.com/gpl/scripts/install.sh
 sudo /bin/sh install.sh -n $DOMAIN
 
+# Nice try to automate the default server. It worked only partially, got a HTTP access denied error (403)  
 # virtualmin create-domain --domain "$DOMAIN" --pass "$PASSWORD" --desc "$DOMAIN" --unix --dir --web --ssl --limits-from-plan --ip-already --ip6-already
 # APACHEFILE="/etc/apache2/sites-available/${DOMAIN}.conf"
 # tail -n 1 "$APACHEFILE" | wc -c | xargs -I {} truncate "$APACHEFILE" -s -{}
