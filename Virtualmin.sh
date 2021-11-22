@@ -37,10 +37,9 @@ cd virtualmin
 wget https://software.virtualmin.com/gpl/scripts/install.sh
 sudo /bin/sh install.sh -n $DOMAIN
 
-virtualmin create-domain --domain "$DOMAIN" --pass "$PASSWORD" --desc "$DOMAIN" --unix --dir --web --ssl --limits-from-plan --ip-already --ip6-already
-APACHEFILE="/etc/apache2/sites-available/${DOMAIN}.conf"
-tail -n 1 "$APACHEFILE" | wc -c | xargs -I {} truncate "$APACHEFILE" -s -{}
-#tail -n 1 "$APACHEFILE" | wc -c | xargs -I {} truncate "$APACHEFILE" -s -{}
-EXTRACONF=$'#\n#\nSSLProxyEngine on\nSSLProxyVerify none\nSSLProxyCheckPeerCN off\nSSLProxyCheckPeerName off\nSSLProxyCheckPeerExpire off\nProxyPreserveHost Off\nProxyRequests off\nProxyPass / https://localhost:10000/\nProxyPassReverse / https://localhost:10000/\n#\n#\n</VirtualHost>'
-echo "$EXTRACONF" >> $APACHEFILE
-echo "referers=$DOMAIN" >> /etc/webmin/config
+# virtualmin create-domain --domain "$DOMAIN" --pass "$PASSWORD" --desc "$DOMAIN" --unix --dir --web --ssl --limits-from-plan --ip-already --ip6-already
+# APACHEFILE="/etc/apache2/sites-available/${DOMAIN}.conf"
+# tail -n 1 "$APACHEFILE" | wc -c | xargs -I {} truncate "$APACHEFILE" -s -{}
+# EXTRACONF=$'#\n#\nSSLProxyEngine on\nSSLProxyVerify none\nSSLProxyCheckPeerCN off\nSSLProxyCheckPeerName off\nSSLProxyCheckPeerExpire off\nProxyPreserveHost Off\nProxyRequests off\nProxyPass / https://localhost:10000/\nProxyPassReverse / https://localhost:10000/\n#\n#\n</VirtualHost>'
+# echo "$EXTRACONF" >> $APACHEFILE
+# echo "referers=$DOMAIN" >> /etc/webmin/config
